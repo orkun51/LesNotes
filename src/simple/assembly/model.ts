@@ -1,67 +1,4 @@
-# `Les Notes` 
-
-This is a project for students. This project includes two different parts. First part; in Universites or Schools students have study notes and sometimes,they don't want to share their notes for free. In this project, students can buy a lesson notes. So, they can build their lesson notes and sell them.(Maybe they can create NFT from their lesson notes. The project can develop on this idea). Second part is like chairity system but it is for students and lessons. Students can create a Lesson Classes and Supeducators(Supporter of education) can donate this classes.In the future; students can work together in this classes and they can write lesson notes for others. Students create a NFT from lesson notes in this classes. And supeducators can help students. 
-
-www.patika.dev
-
-### Getting started
-
-INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
-
-1. git clone this repo  https://github.com/orkun51/LesNotes
-2. yarn
-3. near login, and login to your testnet account.
-4. yarn build:release
-6. near dev-deploy ./build/release/simple.wasm
-7. near CONTRACT =<dev-....>
-
-  For create a Note 
-```
-near call $CONTRACT createNote '{"name": "Note Name", "Lesson": "Genres", "price" : 5}' --accountId orkun.testnet
-```
-  For buy a Note
-```
-near call $CONTRACT BuyNote {"id": "Note id"}' --accountId orkun.testnet --deposit 5
-```
-  For create a Lesson Class
-```
-near call $CONTRACT openClass '{ "description":"desc", "maxAmount":5}' --accountId orkun.testnet
-```
-  For close a Lesson Class
-```
-near call $CONTRACT closeClass '{"id":"Class id"}' --accountId orkun.testnet
-```
-  For latest schoolarship
-```
-near view $CONTRACT latestSchoolarship '{"start": 0, "limit": 10}'
-```
-
-
-## Samples
-
-This repository includes a improving project structure for AssemblyScript contracts targeting the NEAR platform.
-
-There is 1 AssemblyScript contracts in this project:
-
-- **simple** in the `src/simple` folder
-
-### Simple
-
-We say that an AssemblyScript contract is written in the "simple style" when the `index.ts` file (the contract entry point) includes a series of exported functions.
-
--**index.ts** in this folder. You can see the function and you can improve this folder.
--**model.ts** in this folder. You can see the behind the functions in the "index.ts".Also you can improve this folder
-
-In this case, all exported functions become public contract methods.
-
-## Les Notes
-
-# Assembly Directory
-In this folder, there are smart contract codes developed by the project using assemblyscript and the near-sdk package provided by Near protocol.
-
-# Model.ts
-In this folder, we can see model classes of the 'Les Notes' such as Notes,Lesson Classes and Supeducators.
-```
+//assembly/model.ts
 import {
   PersistentUnorderedMap,math,Context,
   u128,ContractPromiseBatch} from "near-sdk-as"
@@ -72,11 +9,8 @@ import { AccountId,Money,} from "../../utils"
 export const notes=new PersistentUnorderedMap<u32, Notes>("notes"); 
 export const noteOwners=new PersistentUnorderedMap<u32, Array <AccountId>>("access");
 export const lessonclasses=new PersistentUnorderedMap<u32, LessonClasses>("lessonclasses");
-export const supeducators=new PersistentUnorderedMap<u32, Supeducator>("supeducators"); 
-```
+export const supeducators=new PersistentUnorderedMap<u32, Supeducator>("supeducators");
 
-**Notes Class**
-```
 //This class for Notes
 @nearBindgen
 export class Notes 
@@ -141,9 +75,6 @@ export class Notes
   }
 
 }
-```
-**LessonClasses Class**
-```
 //This is the class for schoolership. 
 @nearBindgen
 export class LessonClasses{
@@ -222,9 +153,8 @@ export class LessonClasses{
 
 
 }
-```
-**Supeducators Class**
-```
+
+
 @nearBindgen
 export class Supeducator
 {
@@ -242,61 +172,5 @@ export class Supeducator
   }
 
 }
-```
-# Index.ts
-
-This folder includes functions.
-
-```
-import { storage, Context, u128 } from "near-sdk-as"
-
-
-import { LessonClasses, Notes, Supeducator } from "./model"
-
-//This function ensure the creating lesson notes
-export function createNote(name:string,lesson:string,genres:string,price:u128): Notes {
-  return Notes.createNote(Context.sender,name,lesson,genres,price);
-}
-
-//This function ensure the buying lesson notes
-export function BuyNote(id:u32):void {
-  Notes.BuyNote(id);
-}
-
-export function getNotes(id:u32): Notes[] {
-  return Notes.findNote(id);
-}
-//get LessonClasses by Id
-export function getLessonClassesbyId(id:u32): LessonClasses{
-  return LessonClasses.findLessonclassesbyId(id);
-}
-//This function ensure the opening class
-export function openClass (description:string,maxAmount:u128):LessonClasses{
-  return LessonClasses.openClass(Context.sender,description,maxAmount);
-}
-
-//This function ensures that Supeducators can give schoolarship to classes
-export function SupportLessonClasses(id:u32,message:string): LessonClasses{
-  return LessonClasses.addAmount(id,message,Context.attachedDeposit);
-}
-//This function ensures that close the Lesson Classes
-export function closeClass(id:u32): LessonClasses{
-  return LessonClasses.closeClass(getLessonClassesbyId(id),Context.sender);
-}
-
-//Looking for last donations
-export function latestSchoolarship(start:u32,limit:u32): Supeducator[] {
-  return Supeducator.showLatestSups(start,limit);
-}
-```
-
-
-
-
-
-
-
-
-
 
 
