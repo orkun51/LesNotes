@@ -13,7 +13,7 @@ INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
 3. near login, and login to your testnet account.
 4. yarn build:release
 6. near dev-deploy ./build/release/simple.wasm
-7. near CONTRACT =<dev-....>
+7. export CONTRACT =<dev-....>
 
   For create a Note 
 ```
