@@ -16,8 +16,11 @@ INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
 7. export CONTRACT =<dev-....>
 
 Also;
+
 1.sh ./scripts/1.dev-deploy.sh
+
 2.sh ./scripts/2.use-contract.sh
+
 3.sh ./scripts/3.cleanup.sh
 
 
