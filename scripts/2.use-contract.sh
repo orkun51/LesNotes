@@ -10,7 +10,7 @@ echo ---------------------------------------------------------
 echo
 
 
-export CONTRACT=dev-1650723986300-49858263620368
+echo "export CONTRACT=dev-1650723986300-49858263620368"
 
 
 [ -z "$CONTRACT" ] && echo "Missing \$CONTRACT environment variable" && exit 1
