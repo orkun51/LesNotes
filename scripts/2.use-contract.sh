@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 # exit on first error after this point to avoid redeploying with successful build
+
+echo "export CONTRACT=dev<123 321>
+
 set -e
 
 echo
@@ -8,9 +11,6 @@ echo ---------------------------------------------------------
 echo "Step 0: Check for environment variable with contract name"
 echo ---------------------------------------------------------
 echo
-
-
-echo "export CONTRACT=dev-1650723986300-49858263620368"
 
 
 [ -z "$CONTRACT" ] && echo "Missing \$CONTRACT environment variable" && exit 1
