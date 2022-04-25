@@ -2,7 +2,7 @@
 
 # exit on first error after this point to avoid redeploying with successful build
 
-echo "export CONTRACT=dev<123 321>
+echo "export CONTRACT=dev<123 321>"
 
 set -e
 
