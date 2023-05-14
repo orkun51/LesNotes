@@ -1,9 +1,9 @@
 # `Les Notes` 
 
 This is a project for students. This project includes two different parts. First part; in Universites or Schools students have study notes and sometimes,they don't want to share their notes for free. In this project, students can buy a lesson notes. So, they can build their lesson notes and sell them.(Maybe they can create NFT from their lesson notes. The project can develop on this idea). Second part is like chairity system but it is for students and lessons. Students can create a Lesson Classes and Supeducators(Supporter of education) can donate this classes.In the future; students can work together in this classes and they can write lesson notes for others. Students create a NFT from lesson notes in this classes. And supeducators can help students. 
+This project I prepared as part of the NEAR Developer Course program offered by Patika.dev & NEAR Protocol. 
 
-
-The project I prepared as part of the NEAR Developer Course program offered by Patika.dev & NEAR Protocol. My project was selected as one of the 100 best projects of all time by Near University.
+My project was selected as one of the 100 best projects of all time by Near University.
 ---
 
 www.patika.dev
