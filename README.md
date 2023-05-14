@@ -6,8 +6,6 @@ This project I prepared as part of the NEAR Developer Course program offered by 
 My project was selected as one of the 100 best projects of all time by Near University.
 ---
 
-www.patika.dev
-
 ### Getting started
 
 INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
